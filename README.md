@@ -3,8 +3,7 @@
 ### Sample Microservice architecture application using spring boot and spring cloud  
 
 ### services available 
-* cloud-config-server -  This is centralized based config server. this will provide config files for all services for different environments. cloud-config-server will fetch config files from the github repository. 
-** link for github repository - https://github.com/manju07/java-spring-boot-microservice-app-config
+* cloud-config-server -  This is centralized based config server. this will provide config files for all services for different environments. cloud-config-server will fetch config files from the github repository. link for github repository - https://github.com/manju07/java-spring-boot-microservice-app-config
 * eureka-naming Server - Here we register all the services of the application. 
 * zuul-api-gateway Server - It will stand in front of the application. this will handle all the requests and distribute them to the other services via routes.
 * oauth2-authentication-server - This will authentication and authorize the requests then forward the requests to the original route.  
