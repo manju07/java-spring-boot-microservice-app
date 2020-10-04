@@ -1,0 +1,123 @@
+package com.sample.springboot.microservices.userservice.service;
+
+import java.util.List;
+
+import com.sample.springboot.microservices.userservice.entity.Corporate;
+import com.sample.springboot.microservices.userservice.entity.CorporateDomain;
+import com.sample.springboot.microservices.userservice.entity.Role;
+import com.sample.springboot.microservices.userservice.entity.User;
+import com.sample.springboot.microservices.userservice.entity.constant.UserRole;
+import com.sample.springboot.microservices.userservice.exception.CustomException;
+import com.sample.springboot.microservices.userservice.exception.ResourceNotFoundException;
+import com.sample.springboot.microservices.userservice.repository.CorporateRepository;
+import com.sample.springboot.microservices.userservice.repository.RoleRepository;
+import com.sample.springboot.microservices.userservice.repository.UserRepository;
+import com.sample.springboot.microservices.userservice.util.UserData;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * User service implementation
+ * 
+ * @author Manjunath Asundi
+ */
+@Service
+@Slf4j
+public class UserServiceImpl implements UserService {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private CorporateRepository corporateRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private RoleRepository roleRepository;
+
+    @Override
+    public User addUser(User user) throws ResourceNotFoundException, CustomException {
+        try {
+            String userName = UserData.getUserName();
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            user.setIsEnabled(true);
+            user.setCreatedBy(userName);
+            user.setUpdatedBy(userName);
+
+            Corporate corporate = corporateRepository.findById(user.getCorporate().getId())
+                    .orElseThrow(() -> new ResourceNotFoundException(
+                            "Corporate doesn't exist with id:" + user.getCorporate().getId()));
+
+            List<CorporateDomain> corporateDomainList = corporate.getCorporateDomainList();
+
+            String email = user.getEmail();
+            String emailDomain = email.substring(email.indexOf("@") + 1, email.length());
+
+            boolean isDomainExists = corporateDomainList.stream()
+                    .anyMatch((corporateDomain) -> corporateDomain.getName().equalsIgnoreCase(emailDomain));
+            if (!isDomainExists)
+                throw new CustomException("Corporate domain doesn't exists");
+
+            corporate.addEmployee(user);
+            user.setCorporate(corporate);
+
+            UserRole userRole = user.getRole().getName();
+            if (!userRole.toString().equals("MANAGER") && !userRole.toString().equals("PARTNER"))
+                throw new CustomException("You can create account for Manager/Partner only...!");
+            else {
+                Role role = roleRepository.findByName(userRole);
+                role.addUser(user);
+                user.setRole(role);
+            }
+            return userRepository.save(user);
+        } catch (ResourceNotFoundException e) {
+            log.error("ResourceNotFoundException -> {}", e.getMessage());
+            throw new ResourceNotFoundException(e.getMessage());
+        } catch (Exception e) {
+            log.error("Exception -> {}", e.getMessage());
+            throw new CustomException(e.getMessage());
+        }
+    }
+
+    @Override
+    public User updateUser(Long userId, User user) throws ResourceNotFoundException, CustomException {
+        try {
+            String userName = UserData.getUserName();
+            User userData = userRepository.findById(userId)
+                    .orElseThrow(() -> new ResourceNotFoundException("User doesn't exist with id:" + userId));
+            userData.setFName(user.getFName());
+            userData.setLName(user.getLName());
+            userData.setGender(user.getGender());
+
+            Corporate corporate = corporateRepository.findById(user.getCorporate().getId())
+                    .orElseThrow(() -> new ResourceNotFoundException(
+                            "Corporate doesn't exist with id:" + user.getCorporate().getId()));
+
+            corporate.addEmployee(user);
+            user.setCorporate(corporate);
+
+            UserRole userRole = user.getRole().getName();
+            if (!userRole.toString().equals("MANAGER") && !userRole.toString().equals("PARTNER"))
+                throw new CustomException("You can update account for Manager/Partner only...!");
+            else {
+                Role role = roleRepository.findByName(userRole);
+                role.addUser(userData);
+                userData.setRole(role);
+            }
+            userData.setUpdatedBy(userName);
+            return userRepository.save(userData);
+        } catch (ResourceNotFoundException e) {
+            log.error("ResourceNotFoundException -> {}", e.getMessage());
+            throw new ResourceNotFoundException(e.getMessage());
+        } catch (Exception e) {
+            log.error("Exception -> {}", e.getMessage());
+            throw new CustomException(e.getMessage());
+        }
+    }
+}
