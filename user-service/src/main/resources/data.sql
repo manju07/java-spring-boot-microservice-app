@@ -22,16 +22,18 @@ VALUES
 (1, 'gmail.com', 1),
 (2, 'live.com', 1);
 
+-- password=Test@123
 INSERT IGNORE INTO `user`
 (`id`,`created_time`,`email`,`fname`,`lname`,`gender`,`password`,`phone`,`updated_time`,`user_name`,`is_enabled`,`is_deleted`,`created_by`,`updated_by`)
 VALUES
-(1,CURRENT_TIMESTAMP,'manjunathasundi39@gmail.com','manjunath','asundi','Male','$2y$12$7irYwQ5YC/tg2HAUhJjZSueCTeLwj3d54nlKt.xVpxGNnl/Y8NHOW',
+(1,CURRENT_TIMESTAMP,'manjunathasundi39@gmail.com','manjunath','asundi','Male','$2a$12$XiqT0bmmBJx5Sl/dGOtSl.FrSqFzjyZuZPJVwa3In0wxKtGYeej2u',
 '+918217641688', current_timestamp, 'manjunath@gmail.com', 1, 0, 'system', 'system'); 
 
+-- password=Test@123 
 INSERT IGNORE INTO `user`
 (`id`,`created_time`,`email`,`fname`,`lname`,`gender`,`password`,`phone`,`updated_time`,`user_name`,`is_enabled`,`is_deleted`,`created_by`,`updated_by`)
 VALUES
-(2,CURRENT_TIMESTAMP,'manju@gmail.com','Manjunath','Asundi','Male','$2y$12$.ZC6TtcDHsNilus1OEgd3eOcFFqwBEP4iY0x.2JBjppI7nr4vc0ym',
+(2,CURRENT_TIMESTAMP,'manju@gmail.com','Manjunath','Asundi','Male','$2a$12$XiqT0bmmBJx5Sl/dGOtSl.FrSqFzjyZuZPJVwa3In0wxKtGYeej2u',
 '+919886988915', current_timestamp, 'manju@gmail.com', 1, 0, 'manjunath@gmail.com', 'manjunath@gmail.com'); 
 
 INSERT IGNORE INTO `user_role` 
