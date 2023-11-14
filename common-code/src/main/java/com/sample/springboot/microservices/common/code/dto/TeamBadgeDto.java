@@ -1,17 +1,23 @@
 package com.sample.springboot.microservices.common.code.dto;
 
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+
+import java.util.HashSet;
+import java.util.Set;
+
 /**
+ * Team badge dto
+ * 
  * @author Manjunath Asundi
  */
-@Setter
 @Getter
+@Setter
 @NoArgsConstructor
 @ToString
-public class RoleDto {
-    private UserRoleDto name;
+public class TeamBadgeDto {
+    private Long id;
+    private Set<BadgeDto> badgeSet = new HashSet<BadgeDto>();
 }

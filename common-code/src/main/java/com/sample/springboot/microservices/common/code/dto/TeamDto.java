@@ -1,17 +1,19 @@
 package com.sample.springboot.microservices.common.code.dto;
 
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+
 /**
- * @author Manjunath Asundi
+ * TeamDto
+ * @author Manjunath asundi
  */
-@Setter
 @Getter
+@Setter
 @NoArgsConstructor
 @ToString
-public class RoleDto {
-    private UserRoleDto name;
+public class TeamDto {
+    private Long id;
+    private String name;
 }

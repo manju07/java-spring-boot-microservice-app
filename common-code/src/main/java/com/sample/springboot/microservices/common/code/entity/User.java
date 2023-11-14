@@ -94,6 +94,19 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String gender;
 
+    @JsonManagedReference
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "allot_individual_badge", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "badge_id"))
+    private Set<Badge> badgeSet = new HashSet<Badge>();
+
+    public void addBadge(Badge badge) {
+        badgeSet.add(badge);
+    }
+
+    public void removeBadge(Badge badge) {
+        badgeSet.remove(badge);
+    }
+
     @JsonBackReference
     @OneToOne(cascade = CascadeType.ALL)
     @JoinTable(name = "corporate_employee", joinColumns = {
