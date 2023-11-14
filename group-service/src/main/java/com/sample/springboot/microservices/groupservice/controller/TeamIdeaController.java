@@ -3,10 +3,10 @@ package com.sample.springboot.microservices.groupservice.controller;
 import java.util.Arrays;
 import java.util.List;
 
-import com.sample.springboot.microservices.groupservice.dto.TeamIdeasDto;
-import com.sample.springboot.microservices.groupservice.entity.TeamIdeas;
-import com.sample.springboot.microservices.groupservice.exception.CustomException;
-import com.sample.springboot.microservices.groupservice.exception.ResourceNotFoundException;
+import com.sample.springboot.microservices.common.code.dto.TeamIdeasDto;
+import com.sample.springboot.microservices.common.code.entity.TeamIdeas;
+import com.sample.springboot.microservices.common.code.exception.CustomException;
+import com.sample.springboot.microservices.common.code.exception.ResourceNotFoundException;
 import com.sample.springboot.microservices.groupservice.service.TeamIdeasService;
 
 import org.modelmapper.ModelMapper;

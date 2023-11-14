@@ -2,10 +2,10 @@ package com.sample.springboot.microservices.groupservice.service;
 
 import java.util.List;
 
-import com.sample.springboot.microservices.groupservice.entity.Team;
-import com.sample.springboot.microservices.groupservice.entity.User;
-import com.sample.springboot.microservices.groupservice.exception.CustomException;
-import com.sample.springboot.microservices.groupservice.exception.ResourceNotFoundException;
+import com.sample.springboot.microservices.common.code.entity.Team;
+import com.sample.springboot.microservices.common.code.entity.User;
+import com.sample.springboot.microservices.common.code.exception.CustomException;
+import com.sample.springboot.microservices.common.code.exception.ResourceNotFoundException;
 import com.sample.springboot.microservices.groupservice.repository.TeamRepository;
 import com.sample.springboot.microservices.groupservice.repository.UserRepository;
 import com.sample.springboot.microservices.groupservice.util.UserData;

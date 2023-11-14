@@ -1,6 +1,6 @@
 package com.sample.springboot.microservices.groupservice.repository;
 
-import com.sample.springboot.microservices.groupservice.entity.TeamIdeas;
+import com.sample.springboot.microservices.common.code.entity.TeamIdeas;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

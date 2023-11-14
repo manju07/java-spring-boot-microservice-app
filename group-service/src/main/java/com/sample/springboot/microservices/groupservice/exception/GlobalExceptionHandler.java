@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 
+import com.sample.springboot.microservices.common.code.exception.CustomException;
+import com.sample.springboot.microservices.common.code.exception.ErrorResponse;
+import com.sample.springboot.microservices.common.code.exception.ResourceNotFoundException;
+
 /**
  * The type Global exception handler.
  * 

@@ -1,11 +1,11 @@
 package com.sample.springboot.microservices.groupservice.controller;
 
-import com.sample.springboot.microservices.groupservice.dto.TeamBadgeDto;
-import com.sample.springboot.microservices.groupservice.dto.UserBadgeDto;
-import com.sample.springboot.microservices.groupservice.entity.Team;
-import com.sample.springboot.microservices.groupservice.entity.User;
-import com.sample.springboot.microservices.groupservice.exception.CustomException;
-import com.sample.springboot.microservices.groupservice.exception.ResourceNotFoundException;
+import com.sample.springboot.microservices.common.code.dto.TeamBadgeDto;
+import com.sample.springboot.microservices.common.code.dto.UserBadgeDto;
+import com.sample.springboot.microservices.common.code.entity.Team;
+import com.sample.springboot.microservices.common.code.entity.User;
+import com.sample.springboot.microservices.common.code.exception.CustomException;
+import com.sample.springboot.microservices.common.code.exception.ResourceNotFoundException;
 import com.sample.springboot.microservices.groupservice.service.BadgeService;
 
 import org.modelmapper.ModelMapper;

@@ -2,12 +2,12 @@ package com.sample.springboot.microservices.groupservice.service;
 
 import java.util.List;
 
-import com.sample.springboot.microservices.groupservice.entity.Team;
-import com.sample.springboot.microservices.groupservice.entity.TeamIdeaSelection;
-import com.sample.springboot.microservices.groupservice.entity.TeamIdeas;
-import com.sample.springboot.microservices.groupservice.entity.TeamVirtualWallIdeas;
-import com.sample.springboot.microservices.groupservice.exception.CustomException;
-import com.sample.springboot.microservices.groupservice.exception.ResourceNotFoundException;
+import com.sample.springboot.microservices.common.code.entity.Team;
+import com.sample.springboot.microservices.common.code.entity.TeamIdeaSelection;
+import com.sample.springboot.microservices.common.code.entity.TeamIdeas;
+import com.sample.springboot.microservices.common.code.entity.TeamVirtualWallIdeas;
+import com.sample.springboot.microservices.common.code.exception.CustomException;
+import com.sample.springboot.microservices.common.code.exception.ResourceNotFoundException;
 import com.sample.springboot.microservices.groupservice.repository.TeamIdeaSelectionRepository;
 import com.sample.springboot.microservices.groupservice.repository.TeamIdeasRepository;
 import com.sample.springboot.microservices.groupservice.repository.TeamRepository;
