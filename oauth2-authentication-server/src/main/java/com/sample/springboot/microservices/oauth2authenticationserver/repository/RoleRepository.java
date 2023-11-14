@@ -1,9 +1,9 @@
 package com.sample.springboot.microservices.oauth2authenticationserver.repository;
 
-import com.sample.springboot.microservices.oauth2authenticationserver.entity.Role;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.sample.springboot.microservices.common.code.entity.Role;
 /**
  * Role Repository
  * @author Manjunath Asundi

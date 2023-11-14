@@ -2,8 +2,8 @@ package com.sample.springboot.microservices.oauth2authenticationserver.service;
 
 import java.util.Optional;
 
+import com.sample.springboot.microservices.common.code.entity.User;
 import com.sample.springboot.microservices.oauth2authenticationserver.entity.CustomUserDetails;
-import com.sample.springboot.microservices.oauth2authenticationserver.entity.User;
 import com.sample.springboot.microservices.oauth2authenticationserver.repository.UsersRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
