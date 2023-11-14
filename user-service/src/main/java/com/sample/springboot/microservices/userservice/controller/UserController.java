@@ -1,10 +1,10 @@
 package com.sample.springboot.microservices.userservice.controller;
 
-import com.sample.springboot.microservices.userservice.dto.UserAddDto;
-import com.sample.springboot.microservices.userservice.entity.User;
-import com.sample.springboot.microservices.userservice.exception.CustomException;
-import com.sample.springboot.microservices.userservice.exception.ResourceNotFoundException;
-import com.sample.springboot.microservices.userservice.model.UserResponse;
+import com.sample.springboot.microservices.common.code.dto.UserAddDto;
+import com.sample.springboot.microservices.common.code.entity.User;
+import com.sample.springboot.microservices.common.code.exception.CustomException;
+import com.sample.springboot.microservices.common.code.exception.ResourceNotFoundException;
+import com.sample.springboot.microservices.common.code.model.UserResponse;
 import com.sample.springboot.microservices.userservice.service.UserService;
 
 import org.modelmapper.ModelMapper;

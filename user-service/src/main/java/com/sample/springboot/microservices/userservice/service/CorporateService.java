@@ -2,9 +2,10 @@ package com.sample.springboot.microservices.userservice.service;
 
 import java.util.List;
 
-import com.sample.springboot.microservices.userservice.entity.Corporate;
-import com.sample.springboot.microservices.userservice.exception.CustomException;
-import com.sample.springboot.microservices.userservice.exception.ResourceNotFoundException;
+import com.sample.springboot.microservices.common.code.entity.Corporate;
+import com.sample.springboot.microservices.common.code.exception.ResourceNotFoundException;
+import com.sample.springboot.microservices.common.code.exception.CustomException;
+
 /**
  * @author Manjunath Asundi
  */

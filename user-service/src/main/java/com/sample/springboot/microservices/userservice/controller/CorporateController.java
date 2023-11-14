@@ -5,11 +5,11 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import com.sample.springboot.microservices.userservice.dto.CorporateDto;
-import com.sample.springboot.microservices.userservice.entity.Corporate;
-import com.sample.springboot.microservices.userservice.exception.CustomException;
-import com.sample.springboot.microservices.userservice.exception.ResourceNotFoundException;
-import com.sample.springboot.microservices.userservice.model.CorporateArchiveResponse;
+import com.sample.springboot.microservices.common.code.dto.CorporateDto;
+import com.sample.springboot.microservices.common.code.entity.Corporate;
+import com.sample.springboot.microservices.common.code.exception.CustomException;
+import com.sample.springboot.microservices.common.code.exception.ResourceNotFoundException;
+import com.sample.springboot.microservices.common.code.model.CorporateArchiveResponse;
 import com.sample.springboot.microservices.userservice.service.CorporateService;
 
 import org.modelmapper.ModelMapper;

@@ -20,12 +20,12 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.sample.springboot.microservices.common.code.entity.constant.ServiceOffering;
-
-import org.hibernate.annotations.SQLDelete;
-import org.hibernate.annotations.Where;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

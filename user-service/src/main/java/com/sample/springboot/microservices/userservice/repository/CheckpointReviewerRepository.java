@@ -1,6 +1,6 @@
 package com.sample.springboot.microservices.userservice.repository;
 
-import com.sample.springboot.microservices.userservice.entity.CheckpointReviewer;
+import com.sample.springboot.microservices.common.code.entity.CheckpointReviewer;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

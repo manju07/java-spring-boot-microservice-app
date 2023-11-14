@@ -1,18 +1,16 @@
 package com.sample.springboot.microservices.userservice.service;
 
-import java.util.List;
-
-import com.sample.springboot.microservices.userservice.entity.Corporate;
-import com.sample.springboot.microservices.userservice.entity.CorporateDomain;
-import com.sample.springboot.microservices.userservice.exception.CustomException;
-import com.sample.springboot.microservices.userservice.exception.ResourceNotFoundException;
+import com.sample.springboot.microservices.common.code.entity.Corporate;
+import com.sample.springboot.microservices.common.code.entity.CorporateDomain;
+import com.sample.springboot.microservices.common.code.exception.CustomException;
+import com.sample.springboot.microservices.common.code.exception.ResourceNotFoundException;
 import com.sample.springboot.microservices.userservice.repository.CorporateRepository;
 import com.sample.springboot.microservices.userservice.util.UserData;
-
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import lombok.extern.slf4j.Slf4j;
+import java.util.List;
 
 /**
  * Corporate service implementation

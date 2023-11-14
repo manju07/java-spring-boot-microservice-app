@@ -1,7 +1,7 @@
 package com.sample.springboot.microservices.userservice.service;
 
-import com.sample.springboot.microservices.userservice.entity.User;
-import com.sample.springboot.microservices.userservice.exception.CustomException;
+import com.sample.springboot.microservices.common.code.entity.User;
+import com.sample.springboot.microservices.common.code.exception.CustomException;
 /**
  * @author Manjunath Asundi
  */

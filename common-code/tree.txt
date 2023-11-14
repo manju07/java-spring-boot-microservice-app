@@ -1,0 +1,29 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------< com.sample.springboot.microservices:common-code >-----------
+[INFO] Building common-code 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ common-code ---
+[INFO] Deleting /Users/m0a07xh/Manju/java-spring-boot-microservice-app/common-code/target
+[INFO] 
+[INFO] --- maven-dependency-plugin:3.1.2:tree (default-cli) @ common-code ---
+Downloading from artifactory: https://mvn.ci.artifacts.walmart.com/artifactory/ret-marketplace-mvn/org/apache/maven/reporting/maven-reporting-impl/3.0.0/maven-reporting-impl-3.0.0.pom
+Downloading from artifactory: https://mvn.ci.artifacts.walmart.com/artifactory/ret-marketplace-mvn/org/apache/maven/doxia/doxia-sink-api/1.9/doxia-sink-api-1.9.pom
+Downloading from artifactory: https://mvn.ci.artifacts.walmart.com/artifactory/ret-marketplace-mvn/org/apache/maven/doxia/doxia-core/1.9/doxia-core-1.9.pom
+Downloading from artifactory: https://mvn.ci.artifacts.walmart.com/artifactory/ret-marketplace-mvn/org/apache/maven/doxia/doxia-site-renderer/1.9/doxia-site-renderer-1.9.pom
+Downloading from artifactory: https://mvn.ci.artifacts.walmart.com/artifactory/ret-marketplace-mvn/org/apache/maven/shared/maven-dependency-analyzer/1.11.1/maven-dependency-analyzer-1.11.1.pom
+Downloading from artifactory: https://mvn.ci.artifacts.walmart.com/artifactory/ret-marketplace-mvn/org/apache/maven/shared/maven-artifact-transfer/0.11.0/maven-artifact-transfer-0.11.0.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.622 s
+[INFO] Finished at: 2023-11-14T17:52:56+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-dependency-plugin:3.1.2:tree (default-cli) on project common-code: Execution default-cli of goal org.apache.maven.plugins:maven-dependency-plugin:3.1.2:tree failed: Plugin org.apache.maven.plugins:maven-dependency-plugin:3.1.2 or one of its dependencies could not be resolved: Failed to collect dependencies at org.apache.maven.plugins:maven-dependency-plugin:jar:3.1.2 -> org.apache.maven.reporting:maven-reporting-impl:jar:3.0.0: Failed to read artifact descriptor for org.apache.maven.reporting:maven-reporting-impl:jar:3.0.0: Could not transfer artifact org.apache.maven.reporting:maven-reporting-impl:pom:3.0.0 from/to artifactory (https://mvn.ci.artifacts.walmart.com/artifactory/ret-marketplace-mvn): transfer failed for https://mvn.ci.artifacts.walmart.com/artifactory/ret-marketplace-mvn/org/apache/maven/reporting/maven-reporting-impl/3.0.0/maven-reporting-impl-3.0.0.pom: Unknown host mvn.ci.artifacts.walmart.com: nodename nor servname provided, or not known -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/PluginResolutionException

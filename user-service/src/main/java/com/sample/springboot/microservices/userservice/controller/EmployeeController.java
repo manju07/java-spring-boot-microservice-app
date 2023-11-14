@@ -1,9 +1,9 @@
 package com.sample.springboot.microservices.userservice.controller;
 
-import com.sample.springboot.microservices.userservice.dto.EmployeeDto;
-import com.sample.springboot.microservices.userservice.dto.UserDto;
-import com.sample.springboot.microservices.userservice.entity.User;
-import com.sample.springboot.microservices.userservice.exception.CustomException;
+import com.sample.springboot.microservices.common.code.dto.EmployeeDto;
+import com.sample.springboot.microservices.common.code.dto.UserDto;
+import com.sample.springboot.microservices.common.code.entity.User;
+import com.sample.springboot.microservices.common.code.exception.CustomException;
 import com.sample.springboot.microservices.userservice.service.EmployeeService;
 
 import org.modelmapper.ModelMapper;

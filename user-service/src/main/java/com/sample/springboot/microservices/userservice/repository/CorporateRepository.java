@@ -3,8 +3,8 @@ package com.sample.springboot.microservices.userservice.repository;
 import java.util.List;
 import java.util.Optional;
 
-import com.sample.springboot.microservices.userservice.entity.Corporate;
 
+import com.sample.springboot.microservices.common.code.entity.Corporate;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
