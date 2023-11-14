@@ -1,3 +1,6 @@
 /.vscode/**
 /.metadata/
 .settings
+
+.idea
+.vscode
