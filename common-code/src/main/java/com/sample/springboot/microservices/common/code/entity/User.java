@@ -141,4 +141,24 @@ public class User implements Serializable {
     public void removeEngagement(Engagement engagement) {
         this.engagementList.remove(engagement);
     }
+
+    public User(String fName, String lName, String phone, String userName, String email, String password, Role role) {
+        this.fName = fName;
+        this.lName = lName;
+        this.phone = phone;
+        this.userName = userName;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
+
+    public User(User user) {
+        this.fName = user.fName;
+        this.lName = user.lName;
+        this.phone = user.phone;
+        this.userName = user.userName;
+        this.email = user.email;
+        this.password = user.password;
+        this.role = user.role;
+    }
 }
