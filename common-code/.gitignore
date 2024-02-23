@@ -30,4 +30,7 @@ build/
 ### VS Code ###
 .vscode/
 bin
+bin
+mvnw
+mvnw.cmd
 
