@@ -2,6 +2,8 @@ package com.sample.springboot.microservices.common.code.exception;
 
 import java.sql.Timestamp;
 
+import org.springframework.http.HttpStatus;
+
 
 /**
  * The type Error response.
@@ -12,7 +14,7 @@ import java.sql.Timestamp;
 public class ErrorResponse {
 
     private Timestamp timestamp;
-    private String status;
+    private int status;
     private String message;
     private String details;
 
@@ -24,7 +26,7 @@ public class ErrorResponse {
      * @param message   the message
      * @param details   the details
      */
-    public ErrorResponse(Timestamp timestamp, String status, String message, String details) {
+    public ErrorResponse(Timestamp timestamp, int status, String message, String details) {
         this.timestamp = timestamp;
         this.status = status;
         this.message = message;
@@ -54,7 +56,7 @@ public class ErrorResponse {
      *
      * @return the status
      */
-    public String getStatus() {
+    public int getStatus() {
         return status;
     }
 
@@ -63,7 +65,7 @@ public class ErrorResponse {
      *
      * @param status the status
      */
-    public void setStatus(String status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 

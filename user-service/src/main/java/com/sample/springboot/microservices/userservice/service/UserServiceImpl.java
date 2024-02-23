@@ -54,6 +54,11 @@ public class UserServiceImpl implements UserService {
                     .orElseThrow(() -> new ResourceNotFoundException(
                             "Corporate doesn't exist with id:" + user.getCorporate().getId()));
 
+            UserRole userRole = user.getRole().getName();
+
+            if (!userRole.toString().equals("MANAGER") && !userRole.toString().equals("PARTNER"))
+                throw new CustomException("You can create account for Manager/Partner only...!");
+
             List<CorporateDomain> corporateDomainList = corporate.getCorporateDomainList();
 
             String email = user.getEmail();
@@ -61,27 +66,23 @@ public class UserServiceImpl implements UserService {
 
             boolean isDomainExists = corporateDomainList.stream()
                     .anyMatch((corporateDomain) -> corporateDomain.getName().equalsIgnoreCase(emailDomain));
+            
             if (!isDomainExists)
-                throw new CustomException("Corporate domain doesn't exists");
+                throw new ResourceNotFoundException("Corporate domain doesn't exists");
 
             corporate.addEmployee(user);
             user.setCorporate(corporate);
 
-            UserRole userRole = user.getRole().getName();
-            if (!userRole.toString().equals("MANAGER") && !userRole.toString().equals("PARTNER"))
-                throw new CustomException("You can create account for Manager/Partner only...!");
-            else {
-                Role role = roleRepository.findByName(userRole);
-                role.addUser(user);
-                user.setRole(role);
-            }
+            if(userRepository.findByPhone(user.getPhone()).isPresent())
+                throw new CustomException("Phone already exist");
+
+            Role role = roleRepository.findByName(userRole);
+            role.addUser(user);
+            user.setRole(role);
             return userRepository.save(user);
-        } catch (ResourceNotFoundException e) {
-            log.error("ResourceNotFoundException -> {}", e.getMessage());
-            throw new ResourceNotFoundException(e.getMessage());
         } catch (Exception e) {
-            log.error("Exception -> {}", e.getMessage());
-            throw new CustomException(e.getMessage());
+            log.error(e.getMessage(), e);
+            throw e;
         }
     }
 

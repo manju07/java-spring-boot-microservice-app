@@ -97,7 +97,7 @@ public class TeamController {
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')")
     @GetMapping(value = "team", produces = "application/json")
     @ApiOperation(value = "Get team list", response = TeamDto.class, responseContainer = "List")
-    public ResponseEntity<List<TeamDto>> getTeamList() throws CustomException {
+    public ResponseEntity<List<TeamDto>> getTeamList() throws ResourceNotFoundException, CustomException {
         log.info("calling get team list api");
         List<TeamDto> returnTeamDtoList = Arrays.asList(modelMapper.map(teamService.getTeamList(), TeamDto[].class));
         return new ResponseEntity<List<TeamDto>>(returnTeamDtoList, HttpStatus.OK);

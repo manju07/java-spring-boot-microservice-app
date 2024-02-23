@@ -17,6 +17,7 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByUserName(String userName);
     Optional<User> findByCreatedBy(String userName);
+    Optional<User> findByPhone(String phone);
     Optional<User> findByIdAndCreatedBy(Long id, String username);
     
     @Query("select u from user u join u.role r where r.name='MANAGER'")

@@ -15,7 +15,7 @@ public interface TeamService {
 
     void archiveTeam(Long id) throws ResourceNotFoundException, CustomException;
 
-    List<Team> getTeamList() throws CustomException;
+    List<Team> getTeamList() throws ResourceNotFoundException, CustomException;
 
     Team getTeamById(Long id) throws ResourceNotFoundException, CustomException;
     
