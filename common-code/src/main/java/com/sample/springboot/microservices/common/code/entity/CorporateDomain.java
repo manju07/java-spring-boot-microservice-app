@@ -42,7 +42,7 @@ public class CorporateDomain implements Serializable {
     private String name;
     
     @JsonBackReference
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     private Corporate corporate;
     
 }

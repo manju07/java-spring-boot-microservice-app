@@ -96,7 +96,7 @@ public class Corporate implements Serializable {
     private List<Engagement> engagementList = new ArrayList<Engagement>();
 
     @JsonManagedReference
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "corporate")
+    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "corporate")
     private List<CorporateDomain> corporateDomainList = new ArrayList<CorporateDomain>();
 
     public void addEngagement(Engagement engagement) {

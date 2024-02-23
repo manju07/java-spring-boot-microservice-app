@@ -1,6 +1,7 @@
 package com.sample.springboot.microservices.common.code.exception;
 
-import java.util.Date;
+import java.sql.Timestamp;
+
 
 /**
  * The type Error response.
@@ -10,7 +11,7 @@ import java.util.Date;
 
 public class ErrorResponse {
 
-    private Date timestamp;
+    private Timestamp timestamp;
     private String status;
     private String message;
     private String details;
@@ -23,7 +24,7 @@ public class ErrorResponse {
      * @param message   the message
      * @param details   the details
      */
-    public ErrorResponse(Date timestamp, String status, String message, String details) {
+    public ErrorResponse(Timestamp timestamp, String status, String message, String details) {
         this.timestamp = timestamp;
         this.status = status;
         this.message = message;
@@ -35,7 +36,7 @@ public class ErrorResponse {
      *
      * @return the timestamp
      */
-    public Date getTimestamp() {
+    public Timestamp getTimestamp() {
         return timestamp;
     }
 
@@ -44,7 +45,7 @@ public class ErrorResponse {
      *
      * @param timestamp the timestamp
      */
-    public void setTimestamp(Date timestamp) {
+    public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
     }
 

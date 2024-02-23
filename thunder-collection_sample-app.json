@@ -1,0 +1,562 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "sample-app",
+    "dateExported": "2024-02-23T06:56:26.462Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "556cd032-9f77-42df-bd9d-5146278df347",
+            "colId": "fe2f9dac-45d2-4d37-a469-629aa0027adc",
+            "containerId": "",
+            "name": "login",
+            "url": "http://localhost:8765/oauth/token",
+            "method": "POST",
+            "sortNum": 15000,
+            "created": "2023-11-14T08:57:19.628Z",
+            "modified": "2024-02-23T06:41:54.965Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                },
+                {
+                    "name": "client_ID",
+                    "value": "R2dpxQ3vPrtfgF72"
+                },
+                {
+                    "name": "client_secret",
+                    "value": "fDw7Mpkk5czHNuSRtmhGmAGL42CaxQB9",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "grant_type",
+                        "value": "password"
+                    },
+                    {
+                        "name": "username",
+                        "value": "manju@gmail.com"
+                    },
+                    {
+                        "name": "password",
+                        "value": "Test@123"
+                    }
+                ]
+            },
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "R2dpxQ3vPrtfgF72",
+                    "password": "Test@123"
+                }
+            },
+            "tests": []
+        },
+        {
+            "_id": "f176e7b1-667d-428d-88c4-6be01972a764",
+            "colId": "fe2f9dac-45d2-4d37-a469-629aa0027adc",
+            "containerId": "",
+            "name": "check token",
+            "url": "http://localhost:8765/oauth/check_token?token=4ce16719-92c1-4d93-97a8-78c5074486c7",
+            "method": "GET",
+            "sortNum": 16250,
+            "created": "2023-11-14T09:44:22.461Z",
+            "modified": "2024-02-23T05:40:18.762Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                },
+                {
+                    "name": "client_ID",
+                    "value": "R2dpxQ3vPrtfgF72",
+                    "isDisabled": true
+                },
+                {
+                    "name": "client_secret",
+                    "value": "$2y$12$IAC7vonMFisX/3.46jaV8.TmZrYoPU/THtJo2fQrBxZ11VAV7fXTC",
+                    "isDisabled": true
+                }
+            ],
+            "params": [
+                {
+                    "name": "token",
+                    "value": "4ce16719-92c1-4d93-97a8-78c5074486c7",
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "grant_type",
+                        "value": "password",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "username",
+                        "value": "manjunath@gmail.com",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "password",
+                        "value": "Test@123",
+                        "isDisabled": true
+                    }
+                ]
+            },
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "R2dpxQ3vPrtfgF72",
+                    "password": "Test@123"
+                }
+            },
+            "tests": []
+        },
+        {
+            "_id": "766ec1ea-b4ac-4067-b8e0-a3517558fa73",
+            "colId": "fe2f9dac-45d2-4d37-a469-629aa0027adc",
+            "containerId": "",
+            "name": "create corporate",
+            "url": "http://localhost:8765/microservice/secure/api/v1/user-service/admin/corporate",
+            "method": "POST",
+            "sortNum": 17500,
+            "created": "2023-11-14T09:15:31.985Z",
+            "modified": "2024-02-23T06:43:38.424Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                },
+                {
+                    "name": "client_ID",
+                    "value": "R2dpxQ3vPrtfgF72",
+                    "isDisabled": true
+                },
+                {
+                    "name": "client_secret",
+                    "value": "$2y$12$IAC7vonMFisX/3.46jaV8.TmZrYoPU/THtJo2fQrBxZ11VAV7fXTC",
+                    "isDisabled": true
+                },
+                {
+                    "name": "Authorization",
+                    "value": "bearer 9725720b-467e-4fba-a24d-262cac368d39"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"clientSpocEmail\": \"manjunath_test1@mailinator.com\",\n  \"clientSpocName\": \"Manjunath Asundi\",\n  \"clientSpocPhone\": \"9886988916\",\n  \"gst\": \"4234PQRSU\",\n  \"name\": \"new_corporate2\",\n  \"corporateDomainList\": [\n    {\n      \"id\": 1,\n      \"name\": \"gmail.com\"\n    }\n  ],\n  \"address\": {\n    \"area\": \"vijayanagar\",\n    \"city\": \"Dharwad\",\n    \"country\": \"India\",\n    \"pincode\": \"580001\",\n    \"state\": \"KA\"\n  }\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "0781b2a1-ea57-4495-a866-901878d50559"
+            },
+            "tests": []
+        },
+        {
+            "_id": "61c89d5a-bc6e-4b59-9696-9bbc0ddf9f67",
+            "colId": "fe2f9dac-45d2-4d37-a469-629aa0027adc",
+            "containerId": "",
+            "name": "create employee",
+            "url": "http://localhost:8765/microservice/secure/api/v1/user-service/employee",
+            "method": "POST",
+            "sortNum": 18125,
+            "created": "2023-11-15T05:45:23.391Z",
+            "modified": "2024-02-23T06:19:11.253Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                },
+                {
+                    "name": "client_ID",
+                    "value": "R2dpxQ3vPrtfgF72"
+                },
+                {
+                    "name": "client_secret",
+                    "value": "Test@123"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "bearer 4ce16719-92c1-4d93-97a8-78c5074486c7"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Accept",
+                    "value": "application/ld+json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"corporate\": {\n    \"id\": 1\n  },\n  \"email\": \"string\",\n  \"fname\": \"string\",\n  \"gender\": \"string\",\n  \"lname\": \"string\",\n  \"password\": \"string\",\n  \"phone\": \"string\",\n  \"userName\": \"string\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "4ce16719-92c1-4d93-97a8-78c5074486c7"
+            },
+            "tests": []
+        },
+        {
+            "_id": "135566b2-5c40-4b6d-8cd7-454305a45e12",
+            "colId": "fe2f9dac-45d2-4d37-a469-629aa0027adc",
+            "containerId": "",
+            "name": "create corporate Copy",
+            "url": "http://localhost:8765/microservice/secure/api/v1/user-service/test",
+            "method": "GET",
+            "sortNum": 18750,
+            "created": "2023-11-14T09:27:41.109Z",
+            "modified": "2023-11-15T03:40:51.492Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Accept-Charset",
+                    "value": "UTF-8"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "6de072ba-712a-434a-b546-342bd5fbbddf",
+            "colId": "fe2f9dac-45d2-4d37-a469-629aa0027adc",
+            "containerId": "",
+            "name": "create corporate Copy Copy",
+            "url": "http://localhost:8765/microservice/secure/api/v1/user-service/test",
+            "method": "GET",
+            "sortNum": 19062.5,
+            "created": "2023-11-15T03:41:08.314Z",
+            "modified": "2023-11-15T03:41:08.314Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Accept-Charset",
+                    "value": "UTF-8"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "bc8ff613-6327-4961-9142-6c5c6ef8cfc4",
+            "colId": "fe2f9dac-45d2-4d37-a469-629aa0027adc",
+            "containerId": "",
+            "name": "get corporate",
+            "url": "http://localhost:9000/microservice/secure/api/v1/user-service/admin/corporate/1",
+            "method": "GET",
+            "sortNum": 19375,
+            "created": "2023-11-14T09:27:44.049Z",
+            "modified": "2024-02-23T06:16:52.625Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Accept-Charset",
+                    "value": "UTF-8"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "bearer 8b1b604d-a8d4-4876-b4b6-d50011956fcd"
+                }
+            ],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "4ce16719-92c1-4d93-97a8-78c5074486c7"
+            },
+            "tests": []
+        },
+        {
+            "_id": "d05a259b-48b4-442e-ac20-e8db2ff96e0d",
+            "colId": "fe2f9dac-45d2-4d37-a469-629aa0027adc",
+            "containerId": "",
+            "name": "get corporate Copy",
+            "url": "http://localhost:8765/microservice/secure/api/v1/user-service/admin/corporate/1",
+            "method": "GET",
+            "sortNum": 19453.2,
+            "created": "2023-11-15T03:34:01.132Z",
+            "modified": "2023-11-15T05:29:31.164Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Accept-Charset",
+                    "value": "UTF-8"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "bearer 9725720b-467e-4fba-a24d-262cac368d39"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "fb333c19-a031-41ff-88a2-e0c042926e78",
+            "colId": "fe2f9dac-45d2-4d37-a469-629aa0027adc",
+            "containerId": "",
+            "name": "get team",
+            "url": "http://localhost:8765/microservice/secure/api/v1/group-service/team",
+            "method": "GET",
+            "sortNum": 19531.3,
+            "created": "2023-11-14T17:55:29.328Z",
+            "modified": "2024-02-23T06:00:51.763Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Accept-Charset",
+                    "value": "UTF-8"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "8b1b604d-a8d4-4876-b4b6-d50011956fcd"
+                }
+            ],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "4ce16719-92c1-4d93-97a8-78c5074486c7"
+            },
+            "tests": []
+        },
+        {
+            "_id": "b180c0fd-85ab-47dc-ae4e-c5d30127ebc7",
+            "colId": "fe2f9dac-45d2-4d37-a469-629aa0027adc",
+            "containerId": "",
+            "name": "get team Copy",
+            "url": "http://localhost:8765/microservice/secure/api/v1/group-service/team",
+            "method": "GET",
+            "sortNum": 19609.4,
+            "created": "2023-11-15T03:39:15.055Z",
+            "modified": "2023-11-15T03:39:15.055Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Accept-Charset",
+                    "value": "UTF-8"
+                }
+            ],
+            "params": [],
+            "auth": {
+                "type": "oauth2",
+                "oauth2": {
+                    "grantType": "password",
+                    "tokenUrl": "http://localhost:8765/oauth/token",
+                    "clientId": "R2dpxQ3vPrtfgF72",
+                    "clientSecret": "Test@123",
+                    "clientAuth": "in-header",
+                    "username": "manjunath@gmail.com",
+                    "password": "Test@123"
+                }
+            },
+            "tests": []
+        },
+        {
+            "_id": "84352f9f-4d3c-4f6c-b9cb-7fd6e1ac9612",
+            "colId": "fe2f9dac-45d2-4d37-a469-629aa0027adc",
+            "containerId": "",
+            "name": "get user",
+            "url": "http://localhost:8765/microservice/secure/api/v1/user-service/admin/corporate/1",
+            "method": "GET",
+            "sortNum": 19687.5,
+            "created": "2023-11-14T09:30:11.649Z",
+            "modified": "2024-02-23T06:01:54.079Z",
+            "headers": [
+                {
+                    "name": "client_ID",
+                    "value": "R2dpxQ3vPrtfgF72",
+                    "isDisabled": true
+                },
+                {
+                    "name": "client_secret",
+                    "value": "$2y$12$IAC7vonMFisX/3.46jaV8.TmZrYoPU/THtJo2fQrBxZ11VAV7fXTC",
+                    "isDisabled": true
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "isDisabled": true
+                },
+                {
+                    "name": "Authorization",
+                    "value": "bearer 8b1b604d-a8d4-4876-b4b6-d50011956fcd",
+                    "isDisabled": true
+                },
+                {
+                    "name": "Accept",
+                    "value": "application/json",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "auth": {
+                "type": "oauth2",
+                "oauth2": {
+                    "grantType": "authorization_code",
+                    "tokenUrl": "",
+                    "clientId": "",
+                    "clientSecret": "",
+                    "clientAuth": "in-header"
+                }
+            },
+            "tests": []
+        },
+        {
+            "_id": "dd67abbd-b5d4-4121-b589-3e65ef606085",
+            "colId": "fe2f9dac-45d2-4d37-a469-629aa0027adc",
+            "containerId": "",
+            "name": "login Copy",
+            "url": "http://localhost:8765/microservice/secure/api/v1/user-service/admin/corporate",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-11-14T07:39:12.616Z",
+            "modified": "2023-11-14T07:39:12.616Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "$2y$12$IAC7vonMFisX/3.46jaV8.TmZrYoPU/THtJo2fQrBxZ11VAV7fXTC"
+            },
+            "tests": []
+        },
+        {
+            "_id": "961914e9-db9d-482a-bbb5-e13391b3d572",
+            "colId": "fe2f9dac-45d2-4d37-a469-629aa0027adc",
+            "containerId": "",
+            "name": "employee",
+            "url": "http://localhost:8765/microservice/secure/api/v1/user-service/employee",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-11-15T05:51:30.770Z",
+            "modified": "2023-11-15T06:03:05.134Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"corporate\": {\n    \"id\": 1\n  },\n  \"email\": \"manjunathasundi1@gmail.com\",\n  \"fname\": \"manjunath\",\n  \"gender\": \"Male\",\n  \"lname\": \"Asundi\",\n  \"password\": \"Test@123\",\n  \"phone\": \"9886988917\",\n  \"userName\": \"manjunathasundi1@gmail.com\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "8016b7c2-68bc-4367-85df-9a81f746c44f",
+            "colId": "fe2f9dac-45d2-4d37-a469-629aa0027adc",
+            "containerId": "",
+            "name": "employee Copy",
+            "url": "http://localhost:8765/microservice/secure/api/v1/user-service/admin/corporate",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-11-15T05:56:01.379Z",
+            "modified": "2023-11-15T06:13:44.521Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "bearer 3f382a3f-76a1-42eb-b10b-e28a74d745af",
+                    "isDisabled": true
+                },
+                {
+                    "name": "Accept-Charset",
+                    "value": "UTF-8",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

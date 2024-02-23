@@ -1,0 +1,862 @@
+{
+    "info": {
+        "_postman_id": "b95352b8-3c51-49c3-904c-6b17bc4227ef",
+        "name": "sample-app",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "login Copy",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8765/microservice/secure/api/v1/user-service/admin/corporate",
+                    "path": [
+                        "microservice",
+                        "secure",
+                        "api",
+                        "v1",
+                        "user-service",
+                        "admin",
+                        "corporate"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8765"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "$2y$12$IAC7vonMFisX/3.46jaV8.TmZrYoPU/THtJo2fQrBxZ11VAV7fXTC",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "login",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:8765/oauth/token",
+                    "path": [
+                        "oauth",
+                        "token"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8765"
+                },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "*/*",
+                        "disabled": true
+                    },
+                    {
+                        "key": "User-Agent",
+                        "value": "Thunder Client (https://www.thunderclient.com)",
+                        "disabled": true
+                    },
+                    {
+                        "key": "client_ID",
+                        "value": "R2dpxQ3vPrtfgF72"
+                    },
+                    {
+                        "key": "client_secret",
+                        "value": "fDw7Mpkk5czHNuSRtmhGmAGL42CaxQB9",
+                        "disabled": true
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "grant_type",
+                            "value": "password"
+                        },
+                        {
+                            "key": "username",
+                            "value": "manju@gmail.com"
+                        },
+                        {
+                            "key": "password",
+                            "value": "Test@123"
+                        }
+                    ]
+                },
+                "auth": {
+                    "type": "basic",
+                    "basic": [
+                        {
+                            "key": "username",
+                            "value": "R2dpxQ3vPrtfgF72",
+                            "type": "string"
+                        },
+                        {
+                            "key": "password",
+                            "value": "Test@123",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "create corporate",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:8765/microservice/secure/api/v1/user-service/admin/corporate",
+                    "path": [
+                        "microservice",
+                        "secure",
+                        "api",
+                        "v1",
+                        "user-service",
+                        "admin",
+                        "corporate"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8765"
+                },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "*/*",
+                        "disabled": true
+                    },
+                    {
+                        "key": "User-Agent",
+                        "value": "Thunder Client (https://www.thunderclient.com)",
+                        "disabled": true
+                    },
+                    {
+                        "key": "client_ID",
+                        "value": "R2dpxQ3vPrtfgF72",
+                        "disabled": true
+                    },
+                    {
+                        "key": "client_secret",
+                        "value": "$2y$12$IAC7vonMFisX/3.46jaV8.TmZrYoPU/THtJo2fQrBxZ11VAV7fXTC",
+                        "disabled": true
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "bearer 9725720b-467e-4fba-a24d-262cac368d39"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"clientSpocEmail\": \"manjunath_test1@mailinator.com\",\n  \"clientSpocName\": \"Manjunath Asundi\",\n  \"clientSpocPhone\": \"9886988916\",\n  \"gst\": \"4234PQRSU\",\n  \"name\": \"new_corporate2\",\n  \"corporateDomainList\": [\n    {\n      \"id\": 1,\n      \"name\": \"gmail.com\"\n    }\n  ],\n  \"address\": {\n    \"area\": \"vijayanagar\",\n    \"city\": \"Dharwad\",\n    \"country\": \"India\",\n    \"pincode\": \"580001\",\n    \"state\": \"KA\"\n  }\n}"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "0781b2a1-ea57-4495-a866-901878d50559",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "create corporate Copy",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8765/microservice/secure/api/v1/user-service/test",
+                    "path": [
+                        "microservice",
+                        "secure",
+                        "api",
+                        "v1",
+                        "user-service",
+                        "test"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8765"
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Accept-Charset",
+                        "value": "UTF-8"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "get corporate",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:9000/microservice/secure/api/v1/user-service/admin/corporate/1",
+                    "path": [
+                        "microservice",
+                        "secure",
+                        "api",
+                        "v1",
+                        "user-service",
+                        "admin",
+                        "corporate",
+                        "1"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9000"
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Accept-Charset",
+                        "value": "UTF-8"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "bearer 8b1b604d-a8d4-4876-b4b6-d50011956fcd"
+                    }
+                ],
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "4ce16719-92c1-4d93-97a8-78c5074486c7",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "get user",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8765/microservice/secure/api/v1/user-service/admin/corporate/1",
+                    "path": [
+                        "microservice",
+                        "secure",
+                        "api",
+                        "v1",
+                        "user-service",
+                        "admin",
+                        "corporate",
+                        "1"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8765"
+                },
+                "header": [
+                    {
+                        "key": "client_ID",
+                        "value": "R2dpxQ3vPrtfgF72",
+                        "disabled": true
+                    },
+                    {
+                        "key": "client_secret",
+                        "value": "$2y$12$IAC7vonMFisX/3.46jaV8.TmZrYoPU/THtJo2fQrBxZ11VAV7fXTC",
+                        "disabled": true
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "disabled": true
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "bearer 8b1b604d-a8d4-4876-b4b6-d50011956fcd",
+                        "disabled": true
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "disabled": true
+                    }
+                ],
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": [
+                        {
+                            "key": "accessToken",
+                            "type": "string"
+                        },
+                        {
+                            "key": "grant_type",
+                            "value": "authorization_code",
+                            "type": "string"
+                        },
+                        {
+                            "key": "clientId",
+                            "value": "",
+                            "type": "string"
+                        },
+                        {
+                            "key": "clientSecret",
+                            "value": "",
+                            "type": "string"
+                        },
+                        {
+                            "key": "accessTokenUrl",
+                            "value": "",
+                            "type": "string"
+                        },
+                        {
+                            "key": "authUrl",
+                            "type": "string"
+                        },
+                        {
+                            "key": "username",
+                            "type": "string"
+                        },
+                        {
+                            "key": "password",
+                            "type": "string"
+                        },
+                        {
+                            "key": "state",
+                            "type": "string"
+                        },
+                        {
+                            "key": "scope",
+                            "type": "string"
+                        },
+                        {
+                            "key": "headerPrefix",
+                            "type": "string"
+                        },
+                        {
+                            "key": "code_verifier",
+                            "type": "string"
+                        },
+                        {
+                            "key": "challengeAlgorithm",
+                            "type": "string"
+                        },
+                        {
+                            "key": "client_authentication",
+                            "value": "header",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "check token",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8765/oauth/check_token?token=4ce16719-92c1-4d93-97a8-78c5074486c7",
+                    "query": [
+                        {
+                            "key": "token",
+                            "value": "4ce16719-92c1-4d93-97a8-78c5074486c7"
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "oauth",
+                        "check_token"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8765"
+                },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "*/*",
+                        "disabled": true
+                    },
+                    {
+                        "key": "User-Agent",
+                        "value": "Thunder Client (https://www.thunderclient.com)",
+                        "disabled": true
+                    },
+                    {
+                        "key": "client_ID",
+                        "value": "R2dpxQ3vPrtfgF72",
+                        "disabled": true
+                    },
+                    {
+                        "key": "client_secret",
+                        "value": "$2y$12$IAC7vonMFisX/3.46jaV8.TmZrYoPU/THtJo2fQrBxZ11VAV7fXTC",
+                        "disabled": true
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "grant_type",
+                            "value": "password",
+                            "disabled": true
+                        },
+                        {
+                            "key": "username",
+                            "value": "manjunath@gmail.com",
+                            "disabled": true
+                        },
+                        {
+                            "key": "password",
+                            "value": "Test@123",
+                            "disabled": true
+                        }
+                    ]
+                },
+                "auth": {
+                    "type": "basic",
+                    "basic": [
+                        {
+                            "key": "username",
+                            "value": "R2dpxQ3vPrtfgF72",
+                            "type": "string"
+                        },
+                        {
+                            "key": "password",
+                            "value": "Test@123",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "get team",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8765/microservice/secure/api/v1/group-service/team",
+                    "path": [
+                        "microservice",
+                        "secure",
+                        "api",
+                        "v1",
+                        "group-service",
+                        "team"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8765"
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Accept-Charset",
+                        "value": "UTF-8"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "8b1b604d-a8d4-4876-b4b6-d50011956fcd"
+                    }
+                ],
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "4ce16719-92c1-4d93-97a8-78c5074486c7",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "get corporate Copy",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8765/microservice/secure/api/v1/user-service/admin/corporate/1",
+                    "path": [
+                        "microservice",
+                        "secure",
+                        "api",
+                        "v1",
+                        "user-service",
+                        "admin",
+                        "corporate",
+                        "1"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8765"
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Accept-Charset",
+                        "value": "UTF-8"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "bearer 9725720b-467e-4fba-a24d-262cac368d39"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "get team Copy",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8765/microservice/secure/api/v1/group-service/team",
+                    "path": [
+                        "microservice",
+                        "secure",
+                        "api",
+                        "v1",
+                        "group-service",
+                        "team"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8765"
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Accept-Charset",
+                        "value": "UTF-8"
+                    }
+                ],
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": [
+                        {
+                            "key": "accessToken",
+                            "type": "string"
+                        },
+                        {
+                            "key": "grant_type",
+                            "value": "password_credentials",
+                            "type": "string"
+                        },
+                        {
+                            "key": "clientId",
+                            "value": "R2dpxQ3vPrtfgF72",
+                            "type": "string"
+                        },
+                        {
+                            "key": "clientSecret",
+                            "value": "Test@123",
+                            "type": "string"
+                        },
+                        {
+                            "key": "accessTokenUrl",
+                            "value": "http://localhost:8765/oauth/token",
+                            "type": "string"
+                        },
+                        {
+                            "key": "authUrl",
+                            "type": "string"
+                        },
+                        {
+                            "key": "username",
+                            "value": "manjunath@gmail.com",
+                            "type": "string"
+                        },
+                        {
+                            "key": "password",
+                            "value": "Test@123",
+                            "type": "string"
+                        },
+                        {
+                            "key": "state",
+                            "type": "string"
+                        },
+                        {
+                            "key": "scope",
+                            "type": "string"
+                        },
+                        {
+                            "key": "headerPrefix",
+                            "type": "string"
+                        },
+                        {
+                            "key": "code_verifier",
+                            "type": "string"
+                        },
+                        {
+                            "key": "challengeAlgorithm",
+                            "type": "string"
+                        },
+                        {
+                            "key": "client_authentication",
+                            "value": "header",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "create corporate Copy Copy",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8765/microservice/secure/api/v1/user-service/test",
+                    "path": [
+                        "microservice",
+                        "secure",
+                        "api",
+                        "v1",
+                        "user-service",
+                        "test"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8765"
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Accept-Charset",
+                        "value": "UTF-8"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "create employee",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:8765/microservice/secure/api/v1/user-service/employee",
+                    "path": [
+                        "microservice",
+                        "secure",
+                        "api",
+                        "v1",
+                        "user-service",
+                        "employee"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8765"
+                },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "*/*",
+                        "disabled": true
+                    },
+                    {
+                        "key": "client_ID",
+                        "value": "R2dpxQ3vPrtfgF72"
+                    },
+                    {
+                        "key": "client_secret",
+                        "value": "Test@123"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "bearer 4ce16719-92c1-4d93-97a8-78c5074486c7"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "application/ld+json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"corporate\": {\n    \"id\": 1\n  },\n  \"email\": \"string\",\n  \"fname\": \"string\",\n  \"gender\": \"string\",\n  \"lname\": \"string\",\n  \"password\": \"string\",\n  \"phone\": \"string\",\n  \"userName\": \"string\"\n}"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "4ce16719-92c1-4d93-97a8-78c5074486c7",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "employee",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:8765/microservice/secure/api/v1/user-service/employee",
+                    "path": [
+                        "microservice",
+                        "secure",
+                        "api",
+                        "v1",
+                        "user-service",
+                        "employee"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8765"
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"corporate\": {\n    \"id\": 1\n  },\n  \"email\": \"manjunathasundi1@gmail.com\",\n  \"fname\": \"manjunath\",\n  \"gender\": \"Male\",\n  \"lname\": \"Asundi\",\n  \"password\": \"Test@123\",\n  \"phone\": \"9886988917\",\n  \"userName\": \"manjunathasundi1@gmail.com\"\n}"
+                }
+            }
+        },
+        {
+            "name": "employee Copy",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8765/microservice/secure/api/v1/user-service/admin/corporate",
+                    "path": [
+                        "microservice",
+                        "secure",
+                        "api",
+                        "v1",
+                        "user-service",
+                        "admin",
+                        "corporate"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8765"
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "bearer 3f382a3f-76a1-42eb-b10b-e28a74d745af",
+                        "disabled": true
+                    },
+                    {
+                        "key": "Accept-Charset",
+                        "value": "UTF-8",
+                        "disabled": true
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \n}"
+                }
+            }
+        }
+    ]
+}
