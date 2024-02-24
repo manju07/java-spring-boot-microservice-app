@@ -1,21 +1,19 @@
-
-`rgb(9, 105, 218)` 
 ##  Microservice Application
 
-This application built on spring boot, spring cloud, Cloud-Config, Eureka Naming server, Zuual API gateway, OAuth-2, Swagger and MySql DB.
+This application is built on Spring Boot, spring cloud, Cloud-Config, Eureka Naming server, Zuual API gateway, OAuth-2, Swagger2, and MySql DB.
 
 `Note:`
-- We are using a github repo for managing service config properties files. please clone below repo before running this application locally - [github repo link](https://github.com/manju07/java-spring-boot-microservice-app-config)
+- We are using a GitHub repo for managing service config properties files. please clone below repo before running this application locally - [github repo link](https://github.com/manju07/java-spring-boot-microservice-app-config)
 
-- To run MySql locally with docker, please refer this document, its part of this repo `java-spring-boot-microservice-app/dbSetup.md`
+- To run MySql locally with docker, please refer to this document, it is part of this repo `java-spring-boot-microservice-app/dbSetup.md`
 
 
 ## Microservices
 
 ### cloud-config-server 
-This will provide the service config property during runtime basis on enviroment /configured at service level. 
+This will provide the service config property during runtime basis on the environment/configured at the service level. 
 
-As you are cloned the repo, you need to specify the repo path in file `cloud-config-server/src/main/resources/application-dev.properties.`
+As you are cloning the repo, you need to specify the repo path in this file `cloud-config-server/src/main/resources/application-dev.properties.`
 
 > spring.cloud.config.server.git.uri=file:/path_to_git_repo
 #
@@ -35,25 +33,25 @@ This will be managing the users across all corporates on the basis of roles.
 #
 #
 ### group-service
-This will be managing the badges, teams for all corporates.
+This will be managing the badges, and teams for all corporates.
 #
 #
 ### zuul-api-gateway Server
-This is public exposed service, all requested routed to different services one based on regex.
+This is a publicly exposed service, all requests are routed to different services one based on regex.
 #
 #
 
-## How to setup locally?
-* Dependencies for local setup - Visual Code/Intellij/Eclipse, Maven, JDK8, MySql Database, Docker, Thunderclient/Postman.
+## How to set up locally?
+* Dependencies for local setup - Visual Code/IntelliJ/Eclipse, Maven, JDK8, MySql Database, Docker, Thunderclient/Postman.
 
-* We are using a github repo for managing service config properties files. please clone below repo before running this application locally. 
+* We are using a GitHub repo for managing service config properties files. please clone the below repo before running this application locally. 
     - https://github.com/manju07/java-spring-boot-microservice-app-config
 
-* DB Setup - To run MySql locally with docker, please refer this document which is part of this repo `java-spring-boot-microservice-app/dbSetup.md`
+* DB Setup - To run MySql locally with docker, please refer to this document which is part of this repo `java-spring-boot-microservice-app/dbSetup.md`
 
 * 2 ways to run this application.
     - Docker thru 
-        - Get into main directory folder, run the command "mvn clean package". this will build all modules and docker images. then execute `run.sh`. 
+        - Get into the main directory folder, and run the command "mvn clean package". this will build all modules and docker images. then execute `run.sh`. 
 
     - Spring boot thru
         - Run each service in the below order.
