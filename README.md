@@ -1,6 +1,6 @@
 ##  Microservice Application
 
-This application is built on Spring Boot, spring cloud, Cloud-Config, Eureka Naming server, Zuual API gateway, OAuth-2, Swagger2, and MySql DB.
+This application is built on Spring Boot, Spring Cloud, Cloud-Config, Eureka Naming server, Zuual API gateway, OAuth-2, Swagger, and MySql DB.
 
 `Note:`
 - We are using a GitHub repo for managing service config properties files. please clone below repo before running this application locally - [github repo link](https://github.com/manju07/java-spring-boot-microservice-app-config)
