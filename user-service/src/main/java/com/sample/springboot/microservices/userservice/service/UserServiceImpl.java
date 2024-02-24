@@ -66,14 +66,14 @@ public class UserServiceImpl implements UserService {
 
             boolean isDomainExists = corporateDomainList.stream()
                     .anyMatch((corporateDomain) -> corporateDomain.getName().equalsIgnoreCase(emailDomain));
-            
+
             if (!isDomainExists)
                 throw new ResourceNotFoundException("Corporate domain doesn't exists");
 
             corporate.addEmployee(user);
             user.setCorporate(corporate);
 
-            if(userRepository.findByPhone(user.getPhone()).isPresent())
+            if (userRepository.findByPhone(user.getPhone()).isPresent())
                 throw new CustomException("Phone already exist");
 
             Role role = roleRepository.findByName(userRole);
@@ -113,12 +113,9 @@ public class UserServiceImpl implements UserService {
             }
             userData.setUpdatedBy(userName);
             return userRepository.save(userData);
-        } catch (ResourceNotFoundException e) {
-            log.error("ResourceNotFoundException -> {}", e.getMessage());
-            throw new ResourceNotFoundException(e.getMessage());
         } catch (Exception e) {
-            log.error("Exception -> {}", e.getMessage());
-            throw new CustomException(e.getMessage());
+            log.error(e.getMessage(), e);
+            throw e;
         }
     }
 }

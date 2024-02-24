@@ -15,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * Manager service implementation
+ * 
  * @author Manjunath Asundi
  */
 
@@ -29,18 +30,15 @@ public class ManagerServiceImpl implements ManagerService {
     public Boolean archiveManager(Long managerId) throws ResourceNotFoundException, CustomException {
         try {
             User user = userRepository.findById(managerId)
-            .orElseThrow(()-> new ResourceNotFoundException("Manager doesn't exist with id:" + managerId));
+                    .orElseThrow(() -> new ResourceNotFoundException("Manager doesn't exist with id:" + managerId));
             user.setIsDeleted(true);
             user.setUpdatedBy(UserData.getUserName());
             userRepository.save(user);
             log.info("Manager deleted with Id:{}", managerId);
             return true;
-        } catch (ResourceNotFoundException e) {
-            log.error("ResourceNotFoundException->{}", e.getMessage());
-            throw new ResourceNotFoundException(e.getMessage());
         } catch (Exception e) {
-            log.error("Exception->{}", e.getMessage());
-            throw new CustomException(e.getMessage());
+            log.error(e.getMessage(), e);
+            throw e;
         }
     }
 
@@ -48,13 +46,10 @@ public class ManagerServiceImpl implements ManagerService {
     public User getManagerById(Long managerId) throws ResourceNotFoundException, CustomException {
         try {
             return userRepository.getManagerById(managerId)
-            .orElseThrow(()-> new ResourceNotFoundException("Manager doesn't exist with id:"+ managerId));
-        } catch (ResourceNotFoundException e) {
-            log.error("ResourceNotFoundException->{}", e.getMessage());
-            throw new ResourceNotFoundException(e.getMessage());
+                    .orElseThrow(() -> new ResourceNotFoundException("Manager doesn't exist with id:" + managerId));
         } catch (Exception e) {
-            log.error("Exception->{}", e.getMessage());
-            throw new CustomException(e.getMessage());
+            log.error(e.getMessage(), e);
+            throw e;
         }
     }
 
@@ -63,8 +58,8 @@ public class ManagerServiceImpl implements ManagerService {
         try {
             return userRepository.getManagerList();
         } catch (Exception e) {
-            log.error("Exception->{}", e.getMessage());
-            throw new CustomException(e.getMessage());
+            log.error(e.getMessage(), e);
+            throw e;
         }
     }
 }

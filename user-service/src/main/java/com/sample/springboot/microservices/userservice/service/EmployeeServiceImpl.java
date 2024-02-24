@@ -12,6 +12,7 @@ import com.sample.springboot.microservices.common.code.exception.ResourceNotFoun
 import com.sample.springboot.microservices.userservice.repository.CorporateRepository;
 import com.sample.springboot.microservices.userservice.repository.RoleRepository;
 import com.sample.springboot.microservices.userservice.repository.UserRepository;
+import com.sample.springboot.microservices.userservice.util.UserData;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -41,14 +42,13 @@ public class EmployeeServiceImpl implements EmployeeService {
     private PasswordEncoder passwordEncoder;
 
     @Override
-    public User addEmployee(User user) throws CustomException {
+    public User addEmployee(User user) throws Exception {
         try {
-            user.setPassword(passwordEncoder.encode(user.getPassword()));
-
             Corporate corporate = corporateRepository.findById(user.getCorporate().getId())
                     .orElseThrow(() -> new ResourceNotFoundException(
                             "Corporate doesn't exist with id:" + user.getCorporate().getId()));
 
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
             corporate.addEmployee(user);
             user.setCorporate(corporate);
 
@@ -57,19 +57,24 @@ public class EmployeeServiceImpl implements EmployeeService {
             String email = user.getEmail();
             String emailDomain = email.substring(email.indexOf("@") + 1, email.length());
 
-            boolean isDomainExists = corporateDomainList.stream()
+            boolean isDomainExists = corporateDomainList.parallelStream()
                     .anyMatch((corporateDomain) -> corporateDomain.getName().equalsIgnoreCase(emailDomain));
+
             if (!isDomainExists)
-                throw new CustomException("Invalid email, you should use professional emailId");
+                throw new CustomException("Invalid email", 400, "you should use professional emailId");
 
             UserRole userRole = UserRole.EMPLOYEE;
             Role role = roleRepository.findByName(userRole);
             role.addUser(user);
             user.setRole(role);
+
+            user.setCreatedBy(UserData.getUserName());
+            user.setUpdatedBy(UserData.getUserName());
+
             return userRepository.save(user);
         } catch (Exception e) {
-            log.error("Exception->{}", e.getMessage());
-            throw new CustomException(e.getMessage());
+            log.error(e.getMessage(), e);
+            throw e;
         }
     }
 

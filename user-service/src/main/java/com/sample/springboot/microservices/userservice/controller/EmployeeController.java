@@ -3,7 +3,6 @@ package com.sample.springboot.microservices.userservice.controller;
 import com.sample.springboot.microservices.common.code.dto.EmployeeDto;
 import com.sample.springboot.microservices.common.code.dto.UserDto;
 import com.sample.springboot.microservices.common.code.entity.User;
-import com.sample.springboot.microservices.common.code.exception.CustomException;
 import com.sample.springboot.microservices.userservice.service.EmployeeService;
 
 import org.modelmapper.ModelMapper;
@@ -38,7 +37,7 @@ public class EmployeeController {
 
     @PostMapping
     @ApiOperation(value = "Employee signup", response = UserDto.class)
-    public ResponseEntity<UserDto> addEmployee(@RequestBody EmployeeDto employeeDto) throws CustomException {
+    public ResponseEntity<UserDto> addEmployee(@RequestBody EmployeeDto employeeDto) throws Exception {
         User user = modelMapper.map(employeeDto, User.class);
         User returnUser = employeeService.addEmployee(user);
         UserDto returnUserDto = modelMapper.map(returnUser, UserDto.class);

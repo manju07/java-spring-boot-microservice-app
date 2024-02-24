@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -16,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -31,6 +33,7 @@ import lombok.ToString;
 @Setter
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 @ToString
 public class Address implements Serializable {
 
@@ -64,17 +67,6 @@ public class Address implements Serializable {
     private LocalDateTime updated_time;
 
     @JsonBackReference
-    @OneToOne(mappedBy = "address")
+    @OneToOne(mappedBy = "address", fetch = FetchType.LAZY)
     private Corporate corporate;
-
-    public Address(Long id, String area, String city, String pincode, String state, String country,
-            Corporate corporate) {
-        this.id = id;
-        this.area = area;
-        this.city = city;
-        this.pincode = pincode;
-        this.state = state;
-        this.country = country;
-        this.corporate = corporate;
-    }
 }

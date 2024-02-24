@@ -13,6 +13,13 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface CorporateRepository extends JpaRepository<Corporate, Long> {
+
+    List<Corporate> findByName(String name);
+    
+    List<Corporate> findByClientSpocPhone(String clientSpocPhone);
+
+    List<Corporate> findByClientSpocEmail(String clientSpocEmail);
+
     Optional<Corporate> findByIdAndCreatedBy(Long corporateId, String createdBy);
 
     List<Corporate> findByCreatedBy(String createdBy);

@@ -49,12 +49,9 @@ public class TeamIdeaSelectionServiceImpl implements TeamIdeaSelectionService {
             teamIdea.setTeamIdeaSelection(returnTeamIdeaSelection);
             TeamIdeas returnTeamIdea = teamIdeasRepository.save(teamIdea);
             return returnTeamIdea;
-        } catch (ResourceNotFoundException exception) {
-            log.error("ResourceNotFoundException->{}", exception.getMessage());
-            throw new ResourceNotFoundException(exception.getMessage());
         } catch (Exception e) {
-            log.error("Exception->{}", e.getMessage());
-            throw new CustomException(e.getMessage());
+            log.error(e.getMessage(), e);
+            throw e;
         }
     }
 }

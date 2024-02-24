@@ -1,10 +1,9 @@
 package com.sample.springboot.microservices.userservice.service;
 
 import com.sample.springboot.microservices.common.code.entity.User;
-import com.sample.springboot.microservices.common.code.exception.CustomException;
 /**
  * @author Manjunath Asundi
  */
 public interface EmployeeService {
-    User addEmployee(User user) throws CustomException;
+    User addEmployee(User user) throws Exception;
 }

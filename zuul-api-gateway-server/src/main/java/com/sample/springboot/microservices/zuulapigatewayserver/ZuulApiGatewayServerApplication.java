@@ -22,6 +22,7 @@ public class ZuulApiGatewayServerApplication {
         SpringApplication.run(ZuulApiGatewayServerApplication.class, args);
     }
 
+    @SuppressWarnings("deprecation")
     @Bean
 	UiConfiguration uiConfig() {
 		return new UiConfiguration("validatorUrl", "list", "alpha", "schema",

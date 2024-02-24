@@ -41,12 +41,9 @@ public class BadgeServiceImpl implements BadgeService {
                     .orElseThrow(() -> new ResourceNotFoundException("Team doesn't exist with id:" + teamId));
             team.addBadge(badge);
             return teamRepository.save(team);
-        } catch (ResourceNotFoundException exception) {
-            log.error("ResourceNotFoundException->{}", exception.getMessage());
-            throw new ResourceNotFoundException(exception.getMessage());
         } catch (Exception e) {
-            log.error("Exception->{}", e.getMessage());
-            throw new CustomException(e.getMessage());
+            log.error(e.getMessage(), e);
+            throw e;
         }
     }
 
@@ -59,12 +56,9 @@ public class BadgeServiceImpl implements BadgeService {
                     .orElseThrow(() -> new ResourceNotFoundException("User doesn't exist with id:" + userId));
             user.addBadge(badge);
             return userRepository.save(user);
-        } catch (ResourceNotFoundException exception) {
-            log.error("ResourceNotFoundException->{}", exception.getMessage());
-            throw new ResourceNotFoundException(exception.getMessage());
         } catch (Exception e) {
-            log.error("Exception->{}", e.getMessage());
-            throw new CustomException(e.getMessage());
+            log.error(e.getMessage(), e);
+            throw e;
         }
     }
 
@@ -77,12 +71,9 @@ public class BadgeServiceImpl implements BadgeService {
                     .orElseThrow(() -> new ResourceNotFoundException("Team doesn't exist with id:" + teamId));
             team.removeBadge(badge);
             return teamRepository.save(team);
-        } catch (ResourceNotFoundException exception) {
-            log.error("ResourceNotFoundException->{}", exception.getMessage());
-            throw new ResourceNotFoundException(exception.getMessage());
         } catch (Exception e) {
-            log.error("Exception->{}", e.getMessage());
-            throw new CustomException(e.getMessage());
+            log.error(e.getMessage(), e);
+            throw e;
         }
     }
 
@@ -95,12 +86,9 @@ public class BadgeServiceImpl implements BadgeService {
                     .orElseThrow(() -> new ResourceNotFoundException("User doesn't exist with id:" + userId));
             user.removeBadge(badge);
             return userRepository.save(user);
-        } catch (ResourceNotFoundException exception) {
-            log.error("ResourceNotFoundException->{}", exception.getMessage());
-            throw new ResourceNotFoundException(exception.getMessage());
         } catch (Exception e) {
-            log.error("Exception->{}", e.getMessage());
-            throw new CustomException(e.getMessage());
+            log.error(e.getMessage(), e);
+            throw e;
         }
     }
 }

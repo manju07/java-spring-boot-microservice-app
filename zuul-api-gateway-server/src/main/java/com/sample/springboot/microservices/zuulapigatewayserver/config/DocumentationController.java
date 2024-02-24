@@ -22,7 +22,7 @@ public class DocumentationController implements SwaggerResourcesProvider {
     public List<SwaggerResource> get() {
         List<SwaggerResource> resources = new ArrayList<SwaggerResource>();
         resources.add(swaggerResource("user-service", "/microservice/secure/api/v1/user-service/v2/api-docs", "1.0"));
-        resources.add(swaggerResource("poll-service", "/microservice/secure/api/v1/poll-service/v2/api-docs", "1.0"));
+//        resources.add(swaggerResource("poll-service", "/microservice/secure/api/v1/poll-service/v2/api-docs", "1.0"));
         resources.add(swaggerResource("group-service", "/microservice/secure/api/v1/group-service/v2/api-docs", "1.0"));
         return resources;
     }

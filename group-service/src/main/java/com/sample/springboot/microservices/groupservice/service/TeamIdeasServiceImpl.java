@@ -65,12 +65,9 @@ public class TeamIdeasServiceImpl implements TeamIdeasService {
             teamIdeas.setTeamIdeaSelection(returnTeamIdeaSelection);
 
             return teamIdeasRepository.save(teamIdeas);
-        } catch (ResourceNotFoundException exception) {
-            log.error("ResourceNotFoundException->{}", exception.getMessage());
-            throw new ResourceNotFoundException(exception.getMessage());
         } catch (Exception e) {
-            log.error("Exception->{}", e.getMessage() + e.getLocalizedMessage() + e.getStackTrace());
-            throw new CustomException(e.getMessage());
+            log.error(e.getMessage(), e);
+            throw e;
         }
     }
 
@@ -92,12 +89,9 @@ public class TeamIdeasServiceImpl implements TeamIdeasService {
             savedTeamIdeas.setTestPhase(teamIdeas.getTestPhase());
             savedTeamIdeas.setUpdatedBy(userName);
             return teamIdeasRepository.save(savedTeamIdeas);
-        } catch (ResourceNotFoundException exception) {
-            log.error("ResourceNotFoundException->{}", exception.getMessage());
-            throw new ResourceNotFoundException(exception.getMessage());
         } catch (Exception e) {
-            log.error("Exception->{}", e.getMessage());
-            throw new CustomException(e.getMessage());
+            log.error(e.getMessage(), e);
+            throw e;
         }
     }
 
@@ -106,8 +100,8 @@ public class TeamIdeasServiceImpl implements TeamIdeasService {
         try {
             return teamIdeasRepository.findAll();
         } catch (Exception e) {
-            log.error("Exception->{}", e.getMessage());
-            throw new CustomException(e.getMessage());
+            log.error(e.getMessage(), e);
+            throw e;
         }
     }
 }

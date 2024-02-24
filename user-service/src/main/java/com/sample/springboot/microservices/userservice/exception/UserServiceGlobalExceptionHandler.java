@@ -63,7 +63,16 @@ public class UserServiceGlobalExceptionHandler extends ResponseEntityExceptionHa
    * @param request   WebRequest
    * @return the response entity
    */
-  @ExceptionHandler(value = { Exception.class, CustomException.class })
+  @ExceptionHandler(value = {CustomException.class })
+  public ResponseEntity<?> customExcpetionHandler(CustomException exception, WebRequest request) {
+    log.error(exception.getMessage(), exception);
+    ErrorResponse errorDetails = new ErrorResponse(new Timestamp(System.currentTimeMillis()),
+        exception.getStatus(),
+        exception.getMessage(), exception.getDetails());
+    return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
+  }
+
+  @ExceptionHandler(value = { Exception.class })
   public ResponseEntity<?> globleExcpetionHandler(Exception exception, WebRequest request) {
     log.error(exception.getMessage(), exception);
     ErrorResponse errorDetails = new ErrorResponse(new Timestamp(System.currentTimeMillis()),

@@ -2,8 +2,6 @@ package com.sample.springboot.microservices.common.code.exception;
 
 import java.sql.Timestamp;
 
-import org.springframework.http.HttpStatus;
-
 
 /**
  * The type Error response.

@@ -7,10 +7,14 @@ import com.sample.springboot.microservices.common.code.exception.ResourceNotFoun
 import com.sample.springboot.microservices.userservice.repository.CorporateRepository;
 import com.sample.springboot.microservices.userservice.util.UserData;
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
+
+import javax.transaction.Transactional;
 
 /**
  * Corporate service implementation
@@ -25,70 +29,111 @@ public class CorporateServiceImpl implements CorporateService {
     private CorporateRepository corporateRepository;
 
     @Override
+    @Transactional
     public Corporate addCorporate(Corporate corporate) throws ResourceNotFoundException, CustomException {
         try {
-            String userName = UserData.getUserName();
-            corporate.setCreatedBy(userName);
-            corporate.setUpdatedBy(userName);
+
+            validateUniqueValuesAlreadyExistInDB(corporate);
 
             // Corporate domains
             List<CorporateDomain> corporateDomains = corporate.getCorporateDomainList();
-            for (CorporateDomain corporateDomain : corporateDomains) {
-                corporateDomain.setCorporate(corporate);
+            if (Objects.nonNull(corporateDomains)) {
+                corporateDomains.parallelStream().forEach(corporateDomain -> corporateDomain.setCorporate(corporate));
+                corporate.setCorporateDomainList(corporateDomains);
+            } else {
+                throw new ResourceNotFoundException("Corporate domain list is emptt/null");
             }
-            corporate.setCorporateDomainList(corporateDomains);
 
-            corporate.getAddress().setCorporate(corporate);
+            if (Objects.nonNull(corporate.getAddress())) {
+                
+                corporate.getAddress().setCorporate(corporate);
+            }
+
+            String userName = UserData.getUserName();
+            corporate.setCreatedBy(userName);
+            corporate.setUpdatedBy(userName);
             Corporate returnCorporate = corporateRepository.save(corporate);
             return returnCorporate;
         } catch (Exception e) {
-            log.error(e.getMessage());
-            throw new CustomException(e.getMessage());
+            log.error(e.getMessage(), e);
+            throw e;
+        }
+    }
+
+    private void validateUniqueValuesAlreadyExistInDB(Corporate corporate) throws CustomException {
+        if (Objects.nonNull(corporate)) {
+            List<Corporate> corporateList = null;
+
+            if (Objects.nonNull(corporate.getName())) {
+                corporateList = corporateRepository.findByName(corporate.getName());
+                validateList("name", corporate.getName(), corporateList);
+            }
+
+            if (Objects.nonNull(corporate.getClientSpocPhone())) {
+                corporateList = corporateRepository.findByClientSpocPhone(corporate.getClientSpocPhone());
+                validateList("clientSpocPhone", corporate.getClientSpocPhone(), corporateList);
+            }
+
+            if (Objects.nonNull(corporate.getClientSpocEmail())) {
+                corporateList = corporateRepository.findByClientSpocEmail(corporate.getClientSpocEmail());
+                validateList("clientSpocEmail", corporate.getClientSpocEmail(), corporateList);
+            }
+        }
+    }
+
+    private void validateList(String alreadyExistAttributeName, String alreadyExistAttribute,
+            List<Corporate> corporateList) throws CustomException {
+        if (!corporateList.isEmpty()) {
+            throw new CustomException("Already exists", 403,
+                    "Corporate already exists with " + alreadyExistAttributeName + ":" + alreadyExistAttribute);
         }
     }
 
     @Override
+    @Transactional
     public Corporate updateCorporate(Long corporateId, Corporate corporate)
             throws ResourceNotFoundException, CustomException {
         try {
-            String userName = UserData.getUserName();
-            Corporate savedCorporate = corporateRepository.findByIdAndCreatedBy(corporateId, userName)
+
+            Corporate savedCorporate = corporateRepository.findById(corporateId)
                     .orElseThrow(() -> new ResourceNotFoundException("Corporate doesn't exist with id:" + corporateId));
 
             if (!corporate.getName().isEmpty())
                 savedCorporate.setName(corporate.getName());
+
             if (!corporate.getClientSpocName().isEmpty())
                 savedCorporate.setClientSpocName(corporate.getClientSpocName());
+
             if (!corporate.getClientSpocPhone().isEmpty())
                 savedCorporate.setClientSpocPhone(corporate.getClientSpocPhone());
+
             if (!corporate.getClientSpocEmail().isEmpty())
                 savedCorporate.setClientSpocEmail(corporate.getClientSpocEmail());
+
             if (!corporate.getGst().isEmpty())
                 savedCorporate.setGst(corporate.getGst());
 
             // corporate domains
             List<CorporateDomain> corporateDomains = corporate.getCorporateDomainList();
-            if (corporateDomains != null && corporateDomains.size() != 0) {
-                for (CorporateDomain corporateDomain : corporateDomains) {
-                    corporateDomain.setCorporate(savedCorporate);
-                }
+            
+            if (corporateDomains != null && (!corporateDomains.isEmpty())) {
+
+                corporateDomains.parallelStream().forEach(domain -> domain.setCorporate(corporate));
                 savedCorporate.setCorporateDomainList(corporateDomains);
             }
 
             savedCorporate.setAddress(corporate.getAddress());
             corporate.getAddress().setCorporate(savedCorporate);
-            savedCorporate.setUpdatedBy(userName);
+            savedCorporate.setUpdatedBy(UserData.getUserName());
             return corporateRepository.save(savedCorporate);
-        } catch (ResourceNotFoundException e) {
-            log.error("ResourceNotFoundException->{}", e.getMessage());
-            throw new ResourceNotFoundException(e.getMessage());
         } catch (Exception e) {
-            log.error("Exception->{}", e.getMessage());
-            throw new CustomException(e.getMessage());
+            log.error(e.getMessage(), e);
+            throw e;
         }
     }
 
     @Override
+    @Transactional
     public Boolean deleteCorporateById(Long corporateId) throws ResourceNotFoundException, CustomException {
         try {
             String userName = UserData.getUserName();
@@ -98,14 +143,10 @@ public class CorporateServiceImpl implements CorporateService {
             corporate.setUpdatedBy(userName);
             corporateRepository.save(corporate);
             return true;
-        } catch (ResourceNotFoundException e) {
-            log.error("ResourceNotFoundException->{}", e.getMessage());
-            throw new ResourceNotFoundException(e.getMessage());
         } catch (Exception e) {
-            log.error("Exception->{}", e.getMessage());
-            throw new CustomException(e.getMessage());
+            log.error(e.getMessage(), e);
+            throw e;
         }
-
     }
 
     @Override
@@ -113,8 +154,8 @@ public class CorporateServiceImpl implements CorporateService {
         try {
             return corporateRepository.findAll();
         } catch (Exception e) {
-            log.error("Exception->{}", e.getMessage());
-            throw new CustomException(e.getMessage());
+            log.error(e.getMessage(), e);
+            throw e;
         }
     }
 
@@ -124,12 +165,9 @@ public class CorporateServiceImpl implements CorporateService {
             Corporate corporate = corporateRepository.findById(corporateId)
                     .orElseThrow(() -> new ResourceNotFoundException("Corporate doesn't exist with id:" + corporateId));
             return corporate;
-        } catch (ResourceNotFoundException e) {
-            log.error("ResourceNotFoundException->{}", e.getMessage());
-            throw new ResourceNotFoundException(e.getMessage());
         } catch (Exception e) {
-            log.error("Exception->{}", e.getMessage());
-            throw new CustomException(e.getMessage());
+            log.error(e.getMessage(), e);
+            throw e;
         }
     }
 
@@ -138,8 +176,8 @@ public class CorporateServiceImpl implements CorporateService {
         try {
             return corporateRepository.getAllArchivedCorporates();
         } catch (Exception e) {
-            log.error("Exception->{}", e.getMessage());
-            throw new CustomException(e.getMessage());
+            log.error(e.getMessage(), e);
+            throw e;
         }
     }
 }

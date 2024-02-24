@@ -80,23 +80,23 @@ public class Corporate implements Serializable {
     @LastModifiedBy
     private String updatedBy;
 
-    // @Column(columnDefinition = "tinyint default 0" )
+    @Column(columnDefinition = "tinyint default 0" )
     private Boolean isDeleted = false;
 
     @JsonManagedReference
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Address address;
 
     @JsonManagedReference
     @OneToMany(mappedBy = "corporate")
     private List<User> employeeList = new ArrayList<User>();
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "corporate")
+    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "corporate")
     @JsonManagedReference
     private List<Engagement> engagementList = new ArrayList<Engagement>();
 
     @JsonManagedReference
-    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "corporate")
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "corporate")
     private List<CorporateDomain> corporateDomainList = new ArrayList<CorporateDomain>();
 
     public void addEngagement(Engagement engagement) {
